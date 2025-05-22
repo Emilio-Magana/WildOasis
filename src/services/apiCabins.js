@@ -1,6 +1,9 @@
-import supabase from "./supabase";
+import supabase, { SUPABASE_URL } from "./supabase";
+// import { config } from "dotenv";
+// config({ path: ".env" }); // Load .env into process.env
 
-const url = process.env.SUPABASE_URL;
+// const url = import.meta.env.SUPABASE_URL;
+const url = SUPABASE_URL;
 
 export async function getCabins() {
   const { data, error } = await supabase.from("cabins").select("*");

@@ -1,6 +1,7 @@
-import supabase from "./supabase";
-
-const url = process.env.SUPABASE_URL;
+import supabase, { SUPABASE_URL } from "./supabase";
+// import { config } from "dotenv";
+// config({ path: ".env" }); // Load .env into process.env
+const url = SUPABASE_URL;
 
 export async function signup({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({

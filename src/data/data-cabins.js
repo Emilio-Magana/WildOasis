@@ -1,4 +1,8 @@
-const url = process.env.SUPABASE_URL;
+// import { config } from "dotenv";
+// config({ path: ".env" }); // Load .env into process.env
+// const url = import.meta.env.SUPABASE_URL;
+import { SUPABASE_URL } from "../services/supabase";
+const url = SUPABASE_URL;
 const imageUrl = `${url}/storage/v1/object/public/cabin-images/`;
 
 export const cabins = [
