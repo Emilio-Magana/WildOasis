@@ -1,4 +1,6 @@
-import supabase, { supabaseUrl } from "./supabase";
+import supabase from "./supabase";
+
+const url = process.env.SUPABASE_URL;
 
 export async function signup({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
@@ -67,7 +69,7 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
   // 3. Update avatar in the user
   const { data: updatedUser, error: error2 } = await supabase.auth.updateUser({
     data: {
-      avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
+      avatar: `${url}/storage/v1/object/public/avatars/${fileName}`,
     },
   });
 
